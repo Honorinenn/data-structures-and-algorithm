@@ -1,4 +1,5 @@
  /*
+    (Brute_force solution)
     Asymptotic complexity in terms of the size of `numbers` `n`:
     * Time: O(n^2).
     * Auxiliary space: O(1).
@@ -21,4 +22,31 @@
         result.add(-1);
         result.add(-1);
         return result;
+    }
+
+
+
+
+//my attempt
+
+static ArrayList<Integer> pair_sum_sorted_array(ArrayList<Integer> numbers, Integer target) {
+        // Write your code here.
+
+        int lp = 0;
+        int rp = numbers.size() - 1;
+
+        while ( lp < rp){
+           int sum = numbers.get(lp) + numbers.get(rp);
+
+            if(sum == target){
+
+         return new ArrayList(Arrays.asList(lp, rp));
+            }
+            else if (sum > target){
+                rp --;
+            }else{
+                lp ++;
+            }
+        }
+        return new ArrayList(Arrays.asList(-1, -1));
     }
