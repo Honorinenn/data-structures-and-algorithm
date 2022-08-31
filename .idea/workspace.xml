@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="286e0972-8dbb-4df2-9822-bab7090c8790" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sorting/src/main/java/2SumInAnArray" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorting/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/src/main/java/2SumInAnArray" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/src/main/java/2SumInAnArray" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

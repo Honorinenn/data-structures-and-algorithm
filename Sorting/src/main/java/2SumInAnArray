@@ -62,3 +62,54 @@
             return result;
         }
 
+
+
+
+
+
+
+// My attempt
+
+static ArrayList<Integer> two_sum(ArrayList<Integer> numbers, Integer target) {
+        // Write your code here.
+        ArrayList<Integer> outcome = new ArrayList<Integer>(2);
+        outcome.add(-1);
+        outcome.add(-1);
+
+        //find compliment
+        int size = numbers.size();
+        int j = -1;
+        for (int i = 0; i< numbers.size() - 1; i++){
+            j = binarySearch(numbers, i + 1, size, target - numbers.get(i));
+            if(j>0){
+                outcome.set(0,i);
+                outcome.set(1,j);
+                break;
+            }
+        }
+       return outcome;
+    }
+
+    public static int binarySearch(List<Integer> numbers, int start, int end, int target){
+        int low = start;
+        int high = end;
+        int mid, num = 0;
+        while(low < high){
+            mid = low + (high - low)/2;
+            if (mid < start || mid >= end){
+                return -1;
+            }
+            num = numbers.get(mid);
+            if(num == target){
+                return mid;
+            }
+            if(num > target){
+                low = mid + 1;
+            }
+            else {
+                high = mid -1;
+            }
+        }
+        return -1;
+    }
+
