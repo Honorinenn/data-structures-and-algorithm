@@ -1,0 +1,64 @@
+  /*
+    brute_force solution java
+    * Asymptotic complexity in terms of size of `numbers`:
+    * Time: O(n^2).
+    * Auxiliary space: O(1).
+    * Total space: O(n).
+    */
+
+    static ArrayList<Integer> two_sum(ArrayList<Integer> numbers, int target) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = i + 1; j < numbers.size(); j++) {
+                if (numbers.get(i) + numbers.get(j) == target) {
+                    result.add(i);
+                    result.add(j);
+                    return result;
+                }
+            }
+        }
+        result.add(-1);
+        result.add(-1);
+        return result;
+    }
+
+
+
+
+
+
+
+
+     /*
+         hashing_solution java
+        * Asymptotic complexity in terms of size of `numbers` `n`:
+        * Time: O(n).
+        * Auxiliary space: O(n).
+        * Total space: O(n).
+        */
+
+        static ArrayList<Integer> two_sum(ArrayList<Integer> numbers, int target) {
+            ArrayList<Integer> result = new ArrayList<Integer>();
+
+            // This Map stores the array element as Key and its index as Value.
+            HashMap<Integer, Integer> array_index = new HashMap<Integer, Integer>();
+
+            for (int i = 0; i < numbers.size(); i++) {
+                int current = numbers.get(i);
+                int required = target - current;
+
+                if (array_index.containsKey(required)) {
+                    result.add(array_index.get(required));
+                    result.add(i);
+                    return result;
+                }
+
+                array_index.put(current, i);
+            }
+
+            result.add(-1);
+            result.add(-1);
+            return result;
+        }
+
