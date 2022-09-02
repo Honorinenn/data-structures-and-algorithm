@@ -1,0 +1,44 @@
+/*
+    For your reference:
+    class LinkedListNode {
+        Integer value;
+        LinkedListNode next;
+
+        LinkedListNode(Integer value) {
+            this.value = value;
+            this.next = null;
+        }
+    }
+    */
+
+    static LinkedListNode merge_k_lists(ArrayList<LinkedListNode> lists) {
+        if (lists.size() == 0) {
+            return null;
+        }
+
+        int low = 0;
+        int high = lists.size() - 1;
+        while (high != 0) {
+            low = 0;
+            /*
+                For your reference:
+                class LinkedListNode {
+                    Integer value;
+                    LinkedListNode next;
+
+                    LinkedListNode(Integer value) {
+                        this.value = value;
+                        this.next = null;
+                    }
+                }
+                */
+
+                static LinkedListNode merge_k_lists(ArrayList<LinkedListNode> lists) {
+                    if (lists.size() == 0) {
+                        return null;
+                    }
+
+                    int low = 0;
+                    int high = lists.size() - 1;
+                    while (high != 0) {
+                        low = 0;
