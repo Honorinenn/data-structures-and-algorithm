@@ -1,0 +1,44 @@
+static ArrayList<Integer> find_top_k_frequent_elements(ArrayList<Integer> arr, Integer k) {
+        // Practice, Sep 5
+
+        java.util.HashMap<Integer, Integer> frequency = new HashMap<>();
+        for(Integer i: arr) {
+            frequency.put(i, frequency.getOrDefault(i, 0)+1);
+        }
+        // System.out.println(frequency);
+        // Counting sort
+        ArrayList<Integer>[] count = new ArrayList[arr.size()+1];
+        java.util.Iterator<Integer> keys = frequency.keySet().iterator();
+        while (keys.hasNext()) {
+            int key = keys.next();
+            int c = frequency.get(key);
+            if (count[c] == null)
+                count[c] = new ArrayList<Integer>();
+            count[c].add(key);
+        }
+        // System.out.println(Arrays.toString(count));
+
+        ArrayList<Integer> output = new ArrayList<>();
+        for (int i=count.length-1; i>=0; i--) {
+            if(count[i] != null) {
+                output.addAll(count[i]);
+            }
+            if (output.size() >= k) {
+                output = new ArrayList<Integer>(output.subList(0,k));
+                break;
+            }
+        }
+        return output;
+
+        // Heap solution
+        /*PriorityQueue<Integer> count = new PriorityQueue<>((a,b) -> (frequency.get(a)-frequency.get(b)));
+        java.util.Iterator<Integer> keys = frequency.keySet().iterator();
+        while(keys.hasNext()) {
+            int key = keys.next();
+            count.add(key);
+            if(count.size() == k+1) {
+                count.poll();
+            }
+        }
+        return new ArrayList<Integer>(count);*/
+    }
