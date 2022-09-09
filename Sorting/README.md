@@ -187,3 +187,33 @@ Constraints:
 1 <= length of both lists <= 105.
 1 <= k <= length of initial list + 1.
 0 <= any value in the list <= 109.
+
+
+
+7) Problem
+
+Kth Largest In An Array
+Given an array of integers, find the k-th largest number in it.
+
+Example One
+{
+"numbers": [5, 1, 10, 3, 2],
+"k": 2
+}
+Output:
+
+5
+Example Two
+{
+"numbers": [4, 1, 2, 2, 3],
+"k": 4
+}
+Output:
+
+2
+Notes
+Constraints:
+
+1 <= Array Size <= 3*105.
+-109 <= Array Elements <= 109.
+1 <= k <= Array Size.
