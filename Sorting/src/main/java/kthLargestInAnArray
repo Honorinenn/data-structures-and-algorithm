@@ -1,0 +1,51 @@
+static Integer kth_largest_in_an_array(ArrayList<Integer> numbers, Integer k) {
+        // Write your code here.
+
+        quickSort(numbers,k);
+
+        return numbers.get(numbers.size()-k);
+
+    }
+
+    static void quickSort(ArrayList<Integer> numbers, int k){
+         Random r = new Random();
+        helper(numbers,0, numbers.size()-1,numbers.size()-k,r);
+    }
+
+    static void helper(ArrayList<Integer> numbers, int start, int end, int kIndex, Random r){
+        if(start >=end){
+            return;
+        }
+
+        int pivot = start + r.nextInt(end - start + 1);
+        Collections.swap(numbers,start, pivot);
+        int small = start+1;
+        int big = end;
+        while(small<= big){
+            int startVal= numbers.get(start);
+            if(numbers.get(small)< startVal){
+                small ++;
+            }else if(numbers.get(big)>startVal){
+                big--;
+                 }else{
+                                Collections.swap(numbers,small, big);
+                                small++;
+                                big--;
+                            }
+                        }
+                        Collections.swap(numbers, start, big);
+
+                        if(big ==kIndex){
+                            return;
+                        }else if(kIndex >big){
+                             helper(numbers,big+1,end,kIndex,r);
+
+                        }else{
+
+                            helper(numbers, start,big-1,kIndex,r);
+                        }
+
+
+                    }
+
+
