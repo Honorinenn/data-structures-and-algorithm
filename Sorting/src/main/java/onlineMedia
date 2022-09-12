@@ -1,0 +1,30 @@
+ static ArrayList<Integer> online_median(ArrayList<Integer> stream) {
+        if (stream == null || stream.size() <= 1) return stream;
+        ArrayList<Integer> result = new ArrayList<>(stream.size());
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+
+        for (int input : stream) {
+            if (maxHeap.isEmpty()) {
+                maxHeap.offer(input);
+            } else if (maxHeap.peek() >= input) {
+                if (maxHeap.size() > minHeap.size())
+                    minHeap.offer(maxHeap.poll());
+                maxHeap.offer(input);
+            } else {
+                minHeap.offer(input);
+                if (minHeap.size() > maxHeap.size() + 1)
+                    maxHeap.offer(minHeap.poll());
+            }
+
+            if (minHeap.size() > maxHeap.size())
+                result.add(minHeap.peek());
+            else if (maxHeap.size() > minHeap.size())
+                result.add(maxHeap.peek());
+            else
+                result.add((minHeap.peek() + maxHeap.peek())/2);
+        }
+
+        return result;
+    }
