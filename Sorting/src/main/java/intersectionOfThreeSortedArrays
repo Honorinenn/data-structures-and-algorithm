@@ -1,0 +1,27 @@
+static ArrayList<Integer> find_intersection(ArrayList<Integer> arr1, ArrayList<Integer> arr2, ArrayList<Integer> arr3) {
+        // Write your code here.
+        //intersection of n arrays
+        int p1 = 0, p2 = 0, p3 = 0;
+        ArrayList<Integer> resp = new ArrayList<>();
+        while (p1 < arr1.size() && p2 < arr2.size() && p3 < arr3.size()) {
+
+            if (arr1.get(p1).equals(arr2.get(p2)) && arr2.get(p2).equals(arr3.get(p3))) {
+                resp.add(arr1.get(p1));
+                p1++;
+                p2++;
+                p3++;
+            } else {
+                int min = Math.min(arr1.get(p1), arr2.get(p2));
+                min = Math.min(arr3.get(p3), min);
+                if (arr1.get(p1) == min)
+                    p1++;
+                else if (arr2.get(p2) == min)
+                    p2++;
+                else
+                    p3++;
+            }
+        }
+        if (resp.isEmpty())
+            resp.add(-1);
+        return resp;
+    }
