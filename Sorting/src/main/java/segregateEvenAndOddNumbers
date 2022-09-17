@@ -1,0 +1,15 @@
+static ArrayList<Integer> segregate_evens_and_odds(ArrayList<Integer> num) {
+        // Write your code here.
+        ArrayList<Integer> ans = new ArrayList();
+        int n = num.size();
+        ArrayList<Integer> odd = new ArrayList();
+        for (int i=0; i<n; i++) {
+            if (num.get(i)%2 == 0) {
+                ans.add(num.get(i));
+            } else {
+                odd.add(num.get(i));
+            }
+        }
+        ans.addAll(odd);
+        return ans;
+    }
