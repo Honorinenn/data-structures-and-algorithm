@@ -329,3 +329,25 @@ Constraints:
 
 1 <= length of the array <= 105
 1 <= element of the array <= 109
+
+
+
+
+
+2) Problem
+
+Implement Merge Sort
+Given a list of numbers, sort it using the Merge Sort algorithm.
+
+Example
+{
+"arr": [5, 8, 3, 9, 4, 1, 7]
+}
+Output:
+
+[1, 3, 4, 5, 7, 8, 9]
+Notes
+Constraints:
+
+1 <= length of the given list <= 105
+-109 <= number in the list <= 109
