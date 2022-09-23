@@ -1,0 +1,19 @@
+  static ArrayList<Character> dutch_flag_sort(ArrayList<Character> balls) {
+        int red = 0;
+        int blue = balls.size() - 1;
+        int p = 0;
+        while(p <= blue) {
+            if(balls.get(p) == 'R') {
+                Collections.swap(balls, p, red);
+                red++;
+            }
+            if (balls.get(p) == 'B') {
+                Collections.swap(balls, p, blue);
+                blue--;
+            } else {
+                p++;
+            }
+
+        }
+        return balls;
+    }
