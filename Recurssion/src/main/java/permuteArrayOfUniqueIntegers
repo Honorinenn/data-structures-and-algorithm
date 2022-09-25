@@ -21,4 +21,3 @@
             Collections.swap(input, index, j);
         }
     }
-    
