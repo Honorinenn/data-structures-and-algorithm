@@ -1,0 +1,24 @@
+ static ArrayList<ArrayList<Integer>> get_permutations(ArrayList<Integer> arr) {
+        // Write your code here.
+
+      ArrayList<ArrayList<Integer>> outcome = new ArrayList<>();
+      helper(arr, 0, outcome);
+        return outcome;
+    }
+
+    static void helper(List<Integer> input, int index, ArrayList<ArrayList<Integer>> outcome){
+
+        //base case
+        if (index >= input.size()){
+            outcome.add(new ArrayList(input));
+            return;
+        }
+
+        //recursive case
+        for (int j = index; j<input.size(); j++){
+            Collections.swap(input, index, j);
+            helper(input, index + 1, outcome);
+            Collections.swap(input, index, j);
+        }
+    }
+    
