@@ -1,0 +1,19 @@
+ static ArrayList<ArrayList<Integer>> find_combinations(Integer n, Integer k) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> part = new ArrayList<Integer> ();
+        sub(n, k, 1, part, result);
+        return result;
+    }
+    static void sub(int n, int k, int cur, ArrayList<Integer> part, ArrayList<ArrayList<Integer>> result) {
+        if(part.size() == k) {
+            result.add((ArrayList<Integer>)part.clone());
+            return;
+        }
+        if (n <= 0) return;
+        // exlcude k
+        sub(n - 1, k, cur + 1, part, result);
+        // include k
+        part.add(cur);
+        sub(n - 1, k, cur + 1, part, result);
+        part.remove(part.size() - 1);
+    }
