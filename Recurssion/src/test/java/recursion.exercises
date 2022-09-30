@@ -98,3 +98,30 @@ Constraints:
 
 1 <= n <= 20
 1 <= k <= n
+
+
+
+
+
+4)  Problem
+
+
+Permute Array Of Integers Duplicates Allowed
+Given an array of numbers with possible duplicates, return all of its permutations in any order.
+
+Example
+{
+"arr": [1, 2, 2]
+}
+Output:
+
+[
+[1, 2, 2],
+[2, 1, 2],
+[2, 2, 1]
+]
+Notes
+Constraints:
+
+1 <= size of the input array <= 9
+0 <= any array element <= 9
