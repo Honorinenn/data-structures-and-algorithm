@@ -1,0 +1,31 @@
+static ArrayList<ArrayList<Integer>> get_permutations(ArrayList<Integer> arr) {
+
+      Collections.sort(arr);
+
+      ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+      permutations(arr,res,0);
+
+      return res;
+
+    }
+
+     static void permutations(ArrayList<Integer> lst,ArrayList<ArrayList<Integer>> res,int first){
+
+        if(first >= lst.size() )
+        {
+            res.add(new ArrayList<>(lst));
+            return;
+        }
+        else{
+
+            for(int i = first;i < lst.size();i++){
+               if (i != first && (lst.get(i) == lst.get(first) ||
+					(i > 0 && lst.get(i) == lst.get(i - 1)))) {
+				continue;
+					}
+                 Collections.swap(lst,i,first);  // swap to make a new permutation
+                 permutations(lst,res,first+1);
+                 Collections.swap(lst,i,first); // restore the state
+            }
+        }
+    }
