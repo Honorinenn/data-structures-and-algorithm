@@ -1,0 +1,29 @@
+static ArrayList<String> get_distinct_subsets(String s) {
+        ArrayList<String> result = new ArrayList<>();
+        char[] ch = s.toCharArray();
+        Arrays.sort(ch);
+        helper(ch, new StringBuilder(), 0, result);
+        return result;
+    }
+
+    static void helper(char[] ch_arr, StringBuilder currStr, int idx, ArrayList<String> result){
+        if(idx == ch_arr.length){
+            result.add(currStr.toString());
+            return;
+        }else{
+
+            //inclusion
+            currStr.append(ch_arr[idx]);
+            helper(ch_arr, currStr, idx+1, result);
+            currStr.deleteCharAt(currStr.length()-1);
+
+            while(idx < ch_arr.length-1 && ch_arr[idx] == ch_arr[idx+1]){
+                idx++;
+            }
+
+            //exclusion
+            helper(ch_arr, currStr, idx+1, result);
+
+        }
+        return;
+    }
