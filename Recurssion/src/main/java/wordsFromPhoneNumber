@@ -1,0 +1,30 @@
+ static ArrayList<String> get_words_from_phone_number(String phone_number) {
+        String[] codes = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        ArrayList<String> results = new ArrayList<String>();
+        StringBuilder sb = new StringBuilder();
+        generateWords(0, phone_number, sb, codes, results);
+        if (results.size() == 0) results.add("-1");
+        return results;
+    }
+
+
+    static void generateWords(int index, String phNum, StringBuilder sb,
+                            String[] codes, ArrayList<String> results){
+        if (index >= phNum.length()){
+            if (sb.length() > 0)
+                results.add(sb.toString());
+            return;
+        }
+        int len = sb.length();
+        int d = phNum.charAt(index)-'0';
+        if (d < 2){
+            generateWords(index+1, phNum, sb, codes, results);
+        } else {
+            for (char c : codes[d].toCharArray()){
+                sb.append(c);
+                generateWords(index+1, phNum, sb, codes, results);
+                sb.setLength(len);
+            }
+        }
+
+    }
