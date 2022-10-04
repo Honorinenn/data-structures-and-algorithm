@@ -1,0 +1,42 @@
+static ArrayList<ArrayList<Integer>> generate_all_combinations(ArrayList<Integer> arr, Integer target) {
+        Collections.sort(arr);
+        // Write your code here.
+        ArrayList<ArrayList<Integer>>[][] memo = new ArrayList[arr.size()+1][target+1];
+        //System.out.println(Arrays.toString(arr.toArray(new Integer[0])));
+
+        for (int s=0; s <= arr.size(); s++) {
+            memo[s][0] = new ArrayList<>();
+        }
+
+        for (int t=0; t <= target; t++) {
+            memo[arr.size()][t] = new ArrayList<>();
+        }
+
+        return dp(arr, 0, target, memo);
+    }
+
+
+    static ArrayList<ArrayList<Integer>> dp(ArrayList<Integer> arr, int s, Integer t, ArrayList<ArrayList<Integer>>[][] memo) {
+        if (memo[s][t] != null) {
+            return memo[s][t];
+        }
+
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int i = s+1;
+        for (; i < arr.size() && arr.get(s) == arr.get(i) ; i++) {}
+        result.addAll(dp(arr, i, t, memo));
+
+        if (t == arr.get(s)) {
+            ArrayList<Integer> dup = new ArrayList();
+            dup.add(arr.get(s));
+            result.add(dup);
+        } else if (t > arr.get(s)) {
+            for (ArrayList<Integer> al : dp(arr, s+1, t - arr.get(s), memo)) {
+                ArrayList<Integer> dup = new ArrayList(al);
+                dup.add(arr.get(s));
+                result.add(dup);
+            }
+        }
+        memo[s][t] = result;
+        return memo[s][t];
+    }
