@@ -198,3 +198,43 @@ Digits 0 and 1 map to nothing. Other digits map to either three or four differen
 Constraints:
 
 Input string is 7 characters long; each character is a digit.
+
+
+
+
+
+7)   Problem
+
+Generate All Combinations With Sum Equal To Target
+Given an integer array, generate all the unique combinations of the array numbers that sum up to a given target value.
+
+Example One
+{
+"arr": [1, 2, 3],
+"target": 3
+}
+Output:
+
+[
+[3],
+[1, 2]
+]
+Example Two
+{
+"arr": [1, 1, 1, 1],
+"target": 2
+}
+Output:
+
+[
+[1, 1]
+]
+Notes
+Each number in the array can be used exactly once.
+All the returned combinations must be different. Two combinations are considered different if their sorted version is different.
+The order of combinations and the order of the numbers inside a combination does not matter.
+Constraints:
+
+1 <= size of the input array <= 25
+1 <= value in the array <= 100
+1 <= target value <= 2500
