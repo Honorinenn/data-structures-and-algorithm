@@ -1,15 +1,26 @@
-static ArrayList<Integer> segregate_evens_and_odds(ArrayList<Integer> num) {
-        // Write your code here.
-        ArrayList<Integer> ans = new ArrayList();
-        int n = num.size();
-        ArrayList<Integer> odd = new ArrayList();
-        for (int i=0; i<n; i++) {
-            if (num.get(i)%2 == 0) {
-                ans.add(num.get(i));
+ two_pointer_solution.java
+
+ /*
+    * Asymptotic complexity in terms of size of `numbers` `n`:
+    * Time: O(n).
+    * Auxiliary space: O(1).
+    * Total space: O(n).
+    */
+
+    static ArrayList<Integer> segregate_evens_and_odds(ArrayList<Integer> numbers) {
+        int t = numbers.size();
+
+        int left = 0, right = t - 1;
+
+        while (right >= left) { // Move pointers until they cross.
+            if (numbers.get(right) % 2 == 0) {
+                int ct = numbers.get(right);
+                numbers.set(right, numbers.get(left));
+                numbers.set(left, ct);
+                left++; // All values to the left of the left pointer will be even.
             } else {
-                odd.add(num.get(i));
+                right--; // All values to the right of the right pointer will be odd.
             }
         }
-        ans.addAll(odd);
-        return ans;
+        return numbers;
     }
