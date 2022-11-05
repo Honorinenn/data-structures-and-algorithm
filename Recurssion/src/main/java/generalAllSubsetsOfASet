@@ -1,0 +1,22 @@
+ static ArrayList<String> generate_all_subsets(String s) {
+        ArrayList<String> result = new ArrayList<String>();
+        if (s== null) {
+            return result;
+        }
+        char[] chars = s.toCharArray();
+        helper(result, new StringBuilder(), chars, 0);
+        return result;
+    }
+
+    static void helper(List<String> result, StringBuilder partialSolution, char[] chars, int index) {
+        if (index >= chars.length) {
+            result.add(partialSolution.toString());
+            return;
+        }
+
+        helper(result, partialSolution, chars, index+1);
+        partialSolution.append(chars[index]);
+        helper(result, partialSolution, chars, index+1);
+        partialSolution.deleteCharAt(partialSolution.length() - 1);
+
+    }
