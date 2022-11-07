@@ -1,0 +1,22 @@
+ static long how_many_bsts(Integer n) {
+        // Write your code here.
+        long[] souvenir = new long[n + 1];
+        return find(souvenir, n);
+    }
+
+    static long find(long[] souvenir, int n){
+        // Base case
+        if (n == 0) return 1;
+        if (n <= 2) return n;
+        if (souvenir[n] !=0) return souvenir[n];
+         // Recursive case
+        long outcome = 0;
+        for(int i = 0; i < n; i++){
+            long left = find (souvenir, i);
+            long right = find (souvenir, n - i - 1);
+
+            outcome += left*right;
+        }
+        souvenir[n] = outcome;
+        return souvenir[n];
+    }
