@@ -70,3 +70,29 @@
                 // but with N=9 it's going to make things slower on many real CPUs. That's worth
                 // considering for larger Sudoku boards though.
                 for (int i = 0; i < 9; i++) {
+                 if (board.get(row).get(i) == num) {
+                                return false;
+                            }
+                        }
+
+                        // Check if the number is already present in the column.
+                        for (int i = 0; i < 9; i++) {
+                            if (board.get(i).get(col) == num) {
+                                return false;
+                            }
+                        }
+
+                        // Check if the number is already present in the corresponding 3 x 3 box.
+                        int boxRowStart = row - row % 3;
+                        int boxColStart = col - col % 3;
+
+                        for (int i = boxRowStart; i < boxRowStart + 3; i++) {
+                            for (int j = boxColStart; j < boxColStart + 3; j++) {
+                                if (board.get(i).get(j) == num) {
+                                    return false;
+                                }
+                            }
+                        }
+
+                        return true;
+                    }
