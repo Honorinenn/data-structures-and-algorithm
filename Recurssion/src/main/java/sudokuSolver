@@ -35,4 +35,38 @@
             return true;
         }
 
-        
+          // Look for a number (1..9) that "is safe", i.e. can feasibly be placed in this unfilled cell.
+                for (int num = 1; num <= 9; num++) {
+                    if (isSafe(board, row, col, num)) {
+                        // Found a safe number, put it to the board.
+                        board.get(row).set(col, num);
+
+                        // Recurse to find and fill next unfilled cell.
+                        if (recursive_backtracking(board)) {
+                            return true;
+                        } else {
+                            // Placing number num to this unfilled cell does not lead to a solution.
+                            // So we undo placing it to the board:
+                            board.get(row).set(col, 0);
+                            // ... and continue with the `for` loop.
+                            // That will lead to trying other numbers: backtracking.
+                        }
+                    }
+                }
+
+                // Starting from the state of the board passed to this call, no solution is possible.
+                // This cannot be the initial call (root call in the recursion hierarchy of calls) because
+                // problem statement guarantees that a solution exists for every test board.
+                // So returning false will lead to backtracking.
+                return false;
+            }
+
+            /**
+            * Checks if number num is safe to place on board[row, col].
+            */
+            static boolean isSafe(ArrayList<ArrayList<Integer>> board, int row, int col, int num) {
+                // Check if the number is already present in the row.
+                // We could use hashtable (HashSet in Java) to get rid of the following cycle,
+                // but with N=9 it's going to make things slower on many real CPUs. That's worth
+                // considering for larger Sudoku boards though.
+                for (int i = 0; i < 9; i++) {
