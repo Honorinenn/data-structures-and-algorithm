@@ -1,0 +1,38 @@
+ /*
+    * Asymptotic complexity in terms of number of unfilled cells `k` and number of rows(or columns) in `board` `n`:
+    * Time: O(9^k).
+    * Auxiliary space: O(k).
+    * Total space: O(n^2).
+    */
+
+    static ArrayList<ArrayList<Integer>> solve_sudoku_puzzle(ArrayList<ArrayList<Integer>> board) {
+        recursive_backtracking(board);
+        return board;
+    }
+
+    static boolean recursive_backtracking(ArrayList<ArrayList<Integer>> board) {
+        // Look for the next unfilled cell.
+        int row = 0;
+        int col = 0;
+        boolean foundUnfilledCell = false;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board.get(i).get(j) == 0) {
+                    // Found unfilled cell.
+                    row = i;
+                    col = j;
+                    foundUnfilledCell = true;
+                    break;
+                }
+            }
+            if (foundUnfilledCell) {
+                break;
+            }
+        }
+
+        if (!foundUnfilledCell) {
+            // No unfilled cells left. That means a solution is found.
+            return true;
+        }
+
+        
