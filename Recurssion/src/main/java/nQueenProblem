@@ -28,3 +28,23 @@
             if(column[i] == column[previousQueen] || (Math.abs(i-previousQueen) == Math.abs(column[i] - column[previousQueen]))) return true;
         }
         return false;
+         }
+            static void swap(int[] arr, int a, int b){
+                int temp = arr[a];
+                arr[a] = arr[b];
+                arr[b] = temp;
+            }
+
+            static ArrayList<String> construct(int[] column, int n){
+                ArrayList<String> arrange = new ArrayList<>();
+                char[] arr = new char[n];
+                for(int i = 0; i < n; i++){
+                   arr[i] = '-';
+                }
+                for(int i = 0; i < n; i++){
+                    arr[column[i]] = 'q';
+                    arrange.add(new String(arr));
+                    arr[column[i]] = '-';
+                }
+                return arrange;
+            }
