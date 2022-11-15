@@ -20,3 +20,12 @@
     }
     static boolean helper(BinaryTreeNode root, Integer min, Integer max){
        boolean ist_bst = true;
+        if(root == null)
+              return true;
+              if (root.value < min || root.value > max) return false;
+
+              boolean left= (root.left == null)? true: helper(root.left, min, root.value);
+              boolean right= (root.right == null)? true: helper(root.right, root.value, max);
+
+               return left && right;
+           }
