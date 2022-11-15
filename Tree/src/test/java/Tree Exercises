@@ -1,3 +1,7 @@
+TREE AND VARIANTS EXERCISES
+
+1) Problem
+
 Is It A BST
 Given a binary tree, check if it is a binary search tree (BST). A valid BST does not have to be complete or balanced.
 
@@ -28,3 +32,34 @@ Constraints:
 
 0 <= number of nodes <= 100000
 -109 <= values stored in the nodes <= 109
+
+
+
+2) Problem
+
+Single Value Tree
+Given a binary tree, find the number of unival subtrees. An unival (single value) tree is a tree that has the same value in every node.
+
+Example One
+Example one
+
+Output:
+
+6
+The input tree has a total of 6 nodes. Each node is a root of a subtree. All those 6 subtrees are unival trees.
+
+Example Two
+Example two
+
+Output:
+
+5
+The input tree has a total of 7 nodes, so there are 7 subtrees. Of those 7, all but two subtrees are unival. The two non-unival subtrees are:
+
+The one rooted in the root node and
+The one rooted in the root's right child.
+Notes
+Constraints:
+
+0 <= number of nodes in the tree <= 105
+-109 <= node value <= 109
