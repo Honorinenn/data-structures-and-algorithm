@@ -1,0 +1,22 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static boolean is_bst(BinaryTreeNode root) {
+        // Write your code here.
+        if (root == null)
+        return true;
+        return helper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    static boolean helper(BinaryTreeNode root, Integer min, Integer max){
+       boolean ist_bst = true;

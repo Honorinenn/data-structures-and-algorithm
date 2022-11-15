@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="286e0972-8dbb-4df2-9822-bab7090c8790" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tree/src/test/java/Tree Exercises" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tree/src/main/java/isItABST" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
