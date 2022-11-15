@@ -27,4 +27,16 @@
         }
 
         boolean isLeftUniVal = curr.left != null? helper(curr.left): true;
-        
+        boolean isRightUniVal = curr.right != null? helper(curr.right): true;
+
+                int leftVal = curr.left == null? curr.value: curr.left.value;
+                int rightVal = curr.right == null? curr.value: curr.right.value;
+
+                boolean isCurrentSubTreeUniVal = isLeftUniVal && isRightUniVal && leftVal == curr.value && rightVal == curr.value;
+                if(isCurrentSubTreeUniVal){
+                    count++;
+                    return true;
+                }   else {
+                    return false;
+                }
+            }
