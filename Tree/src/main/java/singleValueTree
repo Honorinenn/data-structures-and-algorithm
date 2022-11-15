@@ -1,0 +1,30 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static int count = 0;
+    static Integer find_single_value_trees(BinaryTreeNode root) {
+        // Write your code here.
+        helper(root);
+        return count;
+    }
+    static boolean helper(BinaryTreeNode curr) {
+        if (curr == null)
+        return true;
+        if(curr.left == null && curr.right == null){
+            count++;
+            return true;
+        }
+
+        boolean isLeftUniVal = curr.left != null? helper(curr.left): true;
+        
