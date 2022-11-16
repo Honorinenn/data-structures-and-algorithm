@@ -1,0 +1,37 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<ArrayList<Integer>> all_paths_of_a_binary_tree(BinaryTreeNode root) {
+        // Write your code here.
+        ArrayList<ArrayList<Integer>> outcome = new ArrayList<>();
+        helper(outcome, root, new ArrayList<>());
+        return outcome;
+    }
+    static void helper(ArrayList<ArrayList<Integer>> outcome, BinaryTreeNode root, ArrayList<Integer> curr){
+
+        if (root == null){
+            return;
+        }
+        curr.add(root.value);
+        if(root.left == null && root.right == null){
+            outcome.add(new ArrayList(curr));
+        }    else {
+                if (root.left != null)
+                helper(outcome, root.left, curr);
+                if (root.right != null)
+                helper(outcome, root.right, curr);
+            }
+            curr.remove(curr.size() - 1);
+
+    }
