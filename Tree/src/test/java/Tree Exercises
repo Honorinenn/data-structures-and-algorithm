@@ -69,7 +69,7 @@ Constraints:
 
 3) Problem
 
-Problem
+
 
 Print All Paths Of A Tree
 Given a binary tree, return all paths from root to leaf.
@@ -114,3 +114,39 @@ Constraints:
 
 0 <= number of nodes in the given tree <= 105
 -109 <= value in a node <= 109
+
+
+
+
+4)  Problem
+
+
+
+
+Upside Down
+Given a binary tree where every node has either 0 or 2 children and every right node is a leaf node, flip it upside down turning it into a binary tree where all left nodes are leafs.
+
+Example One
+Example one input
+
+Output:
+
+Example one output
+
+Example Two
+Example two input
+
+Output:
+
+Example two output
+
+The same output tree oriented differently:
+
+Example two alternative output
+
+Notes
+Return the root of the output tree.
+Constraints:
+
+0 <= number of nodes <= 100000
+1 <= node value <= 100000
