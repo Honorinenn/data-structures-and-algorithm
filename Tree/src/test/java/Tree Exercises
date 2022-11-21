@@ -150,3 +150,47 @@ Constraints:
 
 0 <= number of nodes <= 100000
 1 <= node value <= 100000
+
+
+
+
+5) Problem
+
+Merge Two BSTs
+Given two Binary Search Trees (BSTs), merge them into a single height-balanced BST.
+
+Example One
+Example1 input
+
+Output:
+
+Example1 output
+
+Example Two
+Example2 input
+
+Output:
+
+Example2 output
+
+Notes
+A node with value equal to the value of the root node can be inserted either in the left or right subtree.
+A binary tree is called height-balanced if for each node the following property is satisfied:
+The difference in the heights of its left and right subtrees differ by at most 1.
+Constraints:
+
+1 <= number of nodes in the given BSTs <= 104
+-109 <= node value <= 109
+
+
+
+
+
+
+
+
+
+
+
+
+
