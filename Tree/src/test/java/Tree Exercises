@@ -186,6 +186,28 @@ Constraints:
 
 
 
+6) Problem
+
+
+PostOrder Traversal Without Recursion
+Given a binary tree, find its post-order traversal without using recursion.
+
+Example
+Example one
+
+Output:
+
+[400, 500, 200, 300, 100]
+Notes
+Constraints:
+
+1 <= number of nodes <= 105
+-109 <= value in a node <= 109
+
+
+
+
+
 
 
 
