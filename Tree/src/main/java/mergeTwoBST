@@ -1,0 +1,63 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static BinaryTreeNode merge_two_binary_search_trees(BinaryTreeNode root1, BinaryTreeNode root2) {
+        // Write your code here.
+        if (root1 == null && root2 == null)
+        return null;
+
+        ArrayList<Integer> nodules1 = bfs(root1);
+        ArrayList<Integer> nodules2 = bfs(root2);
+        nodules1.addAll(nodules2);
+
+        Collections.sort(nodules1);
+        return helper(nodules1, 0, nodules1.size() - 1);
+    }
+
+    static BinaryTreeNode helper(ArrayList<Integer> nodules1, int begin, int end){
+        if (begin == end){
+            return new BinaryTreeNode(nodules1.get(begin));
+        }
+        if(end < begin){
+            return null;
+        }
+        int middle = begin + (end - begin)/2;
+        BinaryTreeNode root = new BinaryTreeNode(nodules1.get(middle));
+
+        root.left = helper(nodules1, begin, middle - 1);
+        root.right = helper(nodules1, middle + 1, end);
+        return root;
+    }
+
+    private static ArrayList<Integer> bfs(BinaryTreeNode root){
+        Queue<BinaryTreeNode> knot = new LinkedList<BinaryTreeNode>();
+        ArrayList<Integer> outcome = new ArrayList<Integer>();
+        knot.add(root);
+
+        while (!knot.isEmpty()){
+            int size = knot.size();
+            for(int i = 0; i < size; i++){
+                BinaryTreeNode current = knot.poll();
+                outcome.add(current.value);
+
+                if(current.left != null){
+                    knot.add(current.left);
+                }
+                if(current.right != null){
+                    knot.add(current.right);
+                }
+            }
+        }
+        return outcome;
+    }
