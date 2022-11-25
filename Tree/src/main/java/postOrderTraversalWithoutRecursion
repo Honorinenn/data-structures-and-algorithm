@@ -1,0 +1,35 @@
+  /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<Integer> postorder_traversal(BinaryTreeNode root) {
+        // Write your code here.
+        ArrayList<Integer> outcome = new ArrayList();
+        helper(root, outcome);
+        return outcome;
+    }
+    static void helper(BinaryTreeNode root, ArrayList<Integer> outcome){
+        Stack<BinaryTreeNode> mound = new Stack();
+        mound.push(root);
+
+        BinaryTreeNode node = null;
+        while(!mound.isEmpty()){
+            node = mound.pop();
+            outcome.add(node.value);
+
+            if (node.left != null) mound.push(node.left);
+            if(node.right != null) mound.push(node.right);
+        }
+
+        Collections.reverse(outcome);
+    }
