@@ -26,3 +26,30 @@
 
 		if( head == null ) {
 			return null;
+       	}
+       		// what do we know about head at this point
+       		// Its not null
+       		// it can be p or q or neither
+       		if( head.value == p.value || head.value == q.value) {
+       			return head;
+       		}
+
+       		// if p is found and if q lies further below in the same side of the tree as p, then no need to look for q since
+       		// p will always be the ancestor
+
+       		// head is not null AND head is not p or q
+
+       		BinaryTreeNode leftA = helper( head.left, p, q);
+       		BinaryTreeNode rightA = helper( head.right, p, q);
+
+       		// p and q or relative ancesrtor found in both sides of the tree so root has to be ansector
+       		if( leftA != null && rightA != null ) {
+       			return head;
+       		}
+
+       		if( leftA != null ) {
+       			return leftA;
+       		}
+       		return rightA;
+
+       	}
