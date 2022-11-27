@@ -1,0 +1,28 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static Integer lca(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b) {
+        // Write your code here.
+       	BinaryTreeNode node = helper( root, a, b);
+		if( node != null ) {
+			return node.value;
+		}
+		return 0;
+    }
+
+
+	static BinaryTreeNode helper(BinaryTreeNode head, BinaryTreeNode p, BinaryTreeNode q) {
+
+		if( head == null ) {
+			return null;
