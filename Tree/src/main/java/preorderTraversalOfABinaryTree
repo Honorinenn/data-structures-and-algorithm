@@ -1,0 +1,28 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<Integer> preorder(BinaryTreeNode root) {
+        // Write your code here.
+        ArrayList<Integer> roll = new ArrayList<Integer>();
+        preorder(root, roll);
+        return roll;
+    }
+
+    static void preorder(BinaryTreeNode root, ArrayList<Integer> roll){
+        if (root == null)
+        return;
+        roll.add(root.value);
+        preorder(root.left, roll);
+        preorder(root.right, roll);
+    }
