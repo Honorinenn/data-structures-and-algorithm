@@ -1,0 +1,30 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<Integer> inorder(BinaryTreeNode root) {
+        // Write your code here.
+        ArrayList<Integer> outcome = new ArrayList<>();
+        inorder(outcome, root);
+        return outcome;
+    }
+    static void inorder(ArrayList<Integer> outcome, BinaryTreeNode root){
+        if(root == null){
+            return;
+        }
+        inorder(outcome, root.left);
+        outcome.add(root.value);
+        inorder(outcome, root.right);
+
+
+    }
