@@ -1,0 +1,30 @@
+  /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<Integer> postorder(BinaryTreeNode root) {
+        // Write your code here.
+        ArrayList<Integer> outcome = new ArrayList<>();
+        helper(root, outcome);
+        return outcome;
+    }
+
+    static void helper(BinaryTreeNode root, ArrayList<Integer> outcome){
+        if (root == null){
+            return;
+        }
+        helper(root.left, outcome);
+        helper(root.right, outcome);
+        outcome.add(root.value);
+
+    }
