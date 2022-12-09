@@ -1,0 +1,24 @@
+static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> level_order_traversal(BinaryTreeNode root) {
+        // Write your code here.
+
+        if (root == null) return result;
+        LinkedList<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        queue.add(root);
+        while (queue.size() > 0 ){
+
+            int count = queue.size();
+            ArrayList<Integer> subResult = new ArrayList<Integer>();
+            for (int i=0; i < count ; i++){
+
+                BinaryTreeNode node = queue.pollFirst();
+                if (node != null){
+                    if (node.left != null){queue.add(node.left);}
+                    if (node.right != null){queue.add(node.right);}
+                    subResult.add(node.value);
+                }
+            }
+            if (subResult.size() > 0) result.add(subResult);
+        }
+        return result;
+    }
