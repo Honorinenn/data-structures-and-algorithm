@@ -1,0 +1,41 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+     static int diameter =0;
+  static Integer binary_tree_diameter(BinaryTreeNode root) {
+        // Write your code here.
+
+        helper(root);
+
+        return diameter;
+    }
+
+
+private static int helper(BinaryTreeNode node){
+
+       if (node == null) return 0;
+
+
+        int left = helper(node.left);
+        int right = helper(node.right);
+
+        diameter = Integer.max(diameter,left+right );
+
+
+
+        return 1 + Integer.max(left,right);
+
+
+
+    }
