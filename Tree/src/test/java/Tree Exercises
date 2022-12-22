@@ -584,6 +584,44 @@ Node values are unique
 
 
 
+9)  Problem
+
+
+Convert Sorted List To Binary Search Tree
+Given a linked list with elements sorted in ascending order, convert it into a height-balanced binary search tree.
+
+Example One
+Input
+
+Output:
+
+Output
+
+Example Two
+Input
+
+Output:
+
+Output
+
+Notes
+A binary tree is called height-balanced if for any node, the difference in the heights of its left and right subtree does not exceed one.
+Input list does not contain duplicates.
+Return the root node of the created hight-balanced BST.
+Constraints:
+
+1 <= length of the linked list <= 20000
+-109 <= node value <= 109
+
+
+
+
+
+
+
+
+
+
 
 
 
