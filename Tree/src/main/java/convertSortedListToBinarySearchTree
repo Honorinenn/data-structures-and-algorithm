@@ -1,0 +1,53 @@
+  /*
+    For your reference:
+    class LinkedListNode {
+        Integer value;
+        LinkedListNode next;
+
+        LinkedListNode(Integer value) {
+            this.value = value;
+            this.next = null;
+        }
+    }
+
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static BinaryTreeNode sorted_list_to_bst(LinkedListNode head) {
+        // Write your code here.
+        LinkedListNode current = head;
+        ArrayList<Integer> sortedArray = new ArrayList<Integer>();
+        while (current !=null){
+            sortedArray.add(current.value);
+            current = current.next;
+        }
+        return helper(sortedArray,0,sortedArray.size()-1);
+    }
+
+    static BinaryTreeNode helper( ArrayList<Integer> arr, int start, int end ){
+        if(start > end){
+            return null;
+        }
+
+        if(start == end){
+            return new BinaryTreeNode(arr.get(start));
+        }
+
+        int mid = start + (end -start)/2;
+        BinaryTreeNode current = new BinaryTreeNode(arr.get(mid));
+
+        current.left = helper(arr,start, mid-1);
+        current.right = helper(arr,mid+1, end);
+
+        return current;
+
+    }
