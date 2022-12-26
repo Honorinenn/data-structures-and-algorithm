@@ -619,6 +619,49 @@ Constraints:
 
 
 
+10)  Problem
+
+
+Print All Paths That Sum To K
+Given a binary tree and an integer k, find all the root to leaf paths that sum to k.
+
+Example One
+Example one
+
+k = 80
+
+Output:
+
+[
+[10, 25, 45]
+[10, 30, 40]
+]
+Example Two
+Example two
+
+k = 10
+
+Output:
+
+[
+[5, 5],
+[5, 5]
+]
+Notes
+In case there is no root to leaf path with a sum equal to k, return [[-1]].
+The order of the paths (order of the lists in the outer list) does not matter.
+Constraints:
+
+1 <= number of nodes <= 104
+-105 <= value in a node <= 105
+-109 <= k <= 109
+
+
+
+
+
+
+
 
 
 
