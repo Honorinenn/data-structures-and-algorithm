@@ -1,0 +1,79 @@
+/*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<ArrayList<Integer>> all_paths_sum_k(BinaryTreeNode root, Integer k) {
+
+
+        ArrayList<ArrayList<Integer>> slate =  new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> noData = new ArrayList<>(Arrays.asList(-1));
+
+        //base case
+        if(root == null){
+            slate.add(noData);
+            return slate;
+        }
+
+         //Root, Target, slate, sum, results
+        helper(root, k, slate, new ArrayList<Integer>());
+
+        if(slate.isEmpty()){
+            slate.add(noData);
+        }
+
+        return slate;
+    }
+
+    static void helper(BinaryTreeNode root, int target, ArrayList<ArrayList<Integer>> slate,  ArrayList<Integer> partialSol){
+
+
+
+
+        //base case
+        if(root == null){
+            return;
+        }
+
+
+
+      partialSol.add( root.value);
+
+        if(root.left == null && root.right == null) {
+
+            if(target == root.value){
+
+            //Add to Partial Solution
+              slate.add( new ArrayList<>(partialSol) );
+
+            }
+             partialSol.remove(partialSol.size() - 1);
+
+            return;
+        }
+
+        //left subtree
+        if(root.left != null){
+        helper(root.left, target - root.value, slate, partialSol );
+
+        }
+
+
+        //right subtree
+        if(root.right != null){
+        helper(root.right, target - root.value, slate,  partialSol);
+
+
+        }
+      partialSol.remove(partialSol.size() - 1);
+
+    }
