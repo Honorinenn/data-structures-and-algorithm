@@ -1,0 +1,43 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    static ArrayList<Integer> right_view(BinaryTreeNode root) {
+        // Write your code here.
+
+        if (root == null)
+            return null;
+
+        final ArrayList<Integer> results = new ArrayList<Integer>();
+        final Queue<BinaryTreeNode> queue = new LinkedList();
+        Integer rightNode = 0;
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+
+            final int size = queue.size();
+
+            for (int i = 0; i < size; i++) {
+                final BinaryTreeNode current = queue.remove();
+                rightNode = current.value;
+
+                if (current.left != null)
+                    queue.add(current.left);
+                if (current.right != null)
+                    queue.add(current.right);
+            }
+            results.add(rightNode);
+        }
+
+        return results;
+    }
