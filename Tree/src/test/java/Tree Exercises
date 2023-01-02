@@ -725,6 +725,38 @@ Node values are unique
 
 
 
+13)  Problem
+
+Given a binary tree and an integer k, check whether the tree has a root to leaf path with a sum of values equal to k.
+
+Example One
+Example one
+
+k = 4
+
+Output:
+
+1
+Path 0 -> 1 -> 3 has the sum of node values equal to 4.
+
+Example Two
+Example two
+
+k = 10
+
+Output:
+
+0
+Notes
+Constraints:
+
+1 <= number of nodes in the tree <= 105
+-105 <= node value <= 105
+-109 <= k <= 109
+
+
+
+
 
 
 
