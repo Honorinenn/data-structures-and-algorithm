@@ -1,0 +1,51 @@
+ /*
+    For your reference:
+    class BinaryTreeNode {
+        Integer value;
+        BinaryTreeNode left;
+        BinaryTreeNode right;
+
+        BinaryTreeNode(Integer value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    */
+    /*
+    Time comlexity : O(N) since we visit each node once
+    Space : O(Height) O(N) in worst case and O(logN) in avg case
+    */
+    static Boolean path_sum(BinaryTreeNode root, Integer k) {
+       if(root == null){
+           return false;
+       }
+
+       boolean val = helper(root, k);
+       return val;
+    }
+
+    static boolean helper(BinaryTreeNode root, long k){
+        if(root == null){
+            return false;
+        }
+
+        if(root.left == null && root.right == null){
+            return k-root.value == 0;
+        }
+
+        if(root.left != null){
+            if(helper(root.left, k-root.value)){
+                return true;
+            }
+        }
+
+        if(root.right != null){
+           if (helper(root.right, k-root.value)){
+               return true;
+           }
+        }
+
+        return false;
+
+    }
