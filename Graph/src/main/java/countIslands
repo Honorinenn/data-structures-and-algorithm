@@ -28,4 +28,41 @@
             dfs(matrix, row-1, col-1, total_rows, total_cols);
         }
 
-        //above row, same  col        
+        //above row, same  col
+         if (row-1 >= 0 && matrix.get(row-1).get(col) == 1){
+                     dfs(matrix, row-1, col, total_rows, total_cols);
+                }
+
+                 //above row, right col
+                if (row-1 >=0 && col+1 < total_cols && matrix.get(row-1).get(col+1) == 1){
+                     dfs(matrix, row-1, col+1, total_rows, total_cols);
+                }
+
+
+                if (col-1 >=0 && matrix.get(row).get(col-1) == 1){
+                     dfs(matrix, row, col-1, total_rows, total_cols);
+                }
+
+
+                if (col+1 < total_cols && matrix.get(row).get(col+1) == 1){
+                     dfs(matrix, row, col+1, total_rows, total_cols);
+                }
+
+
+                if (row+1 < total_rows && col-1 >=0 && matrix.get(row+1).get(col-1) == 1){
+                     dfs(matrix, row+1, col-1, total_rows, total_cols);
+                }
+
+
+                if (row+1 < total_rows && matrix.get(row+1).get(col) == 1){
+                     dfs(matrix, row+1, col, total_rows, total_cols);
+                }
+
+
+                if (row+1 < total_rows && col+1 < total_cols && matrix.get(row+1).get(col+1) == 1){
+                     dfs(matrix, row+1, col+1, total_rows, total_cols);
+                }
+
+
+            }
+
