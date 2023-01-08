@@ -1,3 +1,5 @@
+1)  Problem
+
 Count Islands
 Given a two-dimensional matrix of 0s and 1s, find the number of islands.
 
@@ -23,3 +25,48 @@ Constraints:
 
 1 <= number of rows <= 450
 1 <= number of columns <= 450
+
+
+
+
+2)  Problem
+
+
+Find Largest Island
+Given a two-dimensional grid of 0s and 1s, find the size of the largest island. If there is no island return 0.
+
+An island is a group of 1s connected vertically or horizontally.
+
+Example One
+{
+"grid": [
+[1, 1, 0],
+[1, 1, 0],
+[0, 0, 1]
+]
+}
+Output:
+
+4
+There are two islands:
+
+[(0, 0), (0, 1), (1, 0), (1, 1)]
+[(2, 2)]
+Size of the largest (first) island is 4.
+
+Example Two
+{
+"grid": [
+[0, 0, 0],
+[0, 0, 0],
+[0, 0, 0]
+]
+}
+Output:
+
+0
+Notes
+Constraints:
+
+1 <= number of rows <= 200
+1 <= number of columns <= 200
