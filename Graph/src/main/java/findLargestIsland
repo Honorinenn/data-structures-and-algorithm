@@ -1,0 +1,33 @@
+ static Integer max_island_size(ArrayList<ArrayList<Integer>> grid) {
+        int m=grid.size();
+        int n=grid.get(0).size();
+        Integer result=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid.get(i).get(j)==1){
+                    grid.get(i).set(j,0);
+                   result=Integer.max(bfs(i,j,grid,m,n),result);
+                }
+            }
+        }
+        return result;
+    }
+static Integer bfs(int i,int j,ArrayList<ArrayList<Integer>> grid,int m,int n){
+    Queue<int[]> queue=new LinkedList<>();
+    int[][] directions=new int[][]{{0,1},{1,0},{-1,0},{0,-1}};
+    queue.add(new int[]{i,j});
+    int counter=1;
+    while(!queue.isEmpty()){
+        int[] temp=queue.poll();
+        for(int[] direction:directions){
+            int row=direction[0]+temp[0];
+            int col=direction[1]+temp[1];
+            if(row>=0&& row<m&& col>=0&& col<n&& grid.get(row).get(col)==1){
+                grid.get(row).set(col,0);
+                counter++;
+                queue.add(new int[]{row,col});
+            }
+        }
+    }
+    return counter;
+}
