@@ -1,0 +1,64 @@
+ static Integer number_of_connected_components(Integer n, ArrayList<ArrayList<Integer>> edges) {
+        if (edges == null) return 0;
+
+
+        Graph g = new Graph(n);
+
+        for (int i = 0; i < edges.size(); i++) {
+            int from = edges.get(i).get(0);
+            int to = edges.get(i).get(1);
+            g.addEdge(from, to);
+            g.addEdge(to, from);
+        }
+
+
+        int components = 0;
+        for (int i = 0; i < n; i++) {
+            if (g.visited[i] == 0) {
+                g.bfs(i);
+                components++;
+            }
+        }
+
+        return components;
+
+
+    }
+
+    static class Graph {
+        int n;
+        ArrayList<Integer> adjL[];
+        int[] visited;
+
+        Graph(int n) {
+            this.n = n;
+            adjL = new ArrayList[n];
+            visited = new int[n];
+
+            for (int i = 0; i < n; i++) {
+                adjL[i] = new ArrayList<Integer>();
+            }
+        }
+
+        void addEdge(int from, int to) {
+            adjL[from].add(to);
+        }
+
+        void bfs(int start) {
+            visited[start] = 1;
+            Queue<Integer> q = new LinkedList<Integer>();
+            q.add(start);
+
+            while (!q.isEmpty()) {
+                int node = q.poll();
+
+                for (int neigh: adjL[node]) {
+                    if (visited[neigh] == 0) {
+                        visited[neigh] = 1;
+
+                        q.add(neigh);
+                    }
+                }
+            }
+        }
+    }
